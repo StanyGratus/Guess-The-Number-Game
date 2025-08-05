@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game</title>
+        <link rel="stylesheet" href="gamestyle.css">
+    </head>
+<body>
+<div>
+<h1 class="heading">Guess the number</h1>
+<input class ="inp" id="num" placeholder="enter a no. between 1-10">
+<button class="button" onclick="check()">Check</button>
+<p id="result">Welcome, lets begin</p>
+<p id="score">Score: 10</p>
+<p id="generated"></p>
+</div>
+</body>
+<script>
+    var no=document.getElementById("num")
+    var res=document.getElementById("result")
+    var gen=document.getElementById("generated")
+    var score=10
+    var sc=document.getElementById("score")
+    function check()
+    {
+        var rand=Math.floor(Math.random()*10)+1
+        var enterednum=no.value
+        if(rand==enterednum)
+        {
+             res.textContent="Jeechita da maara"
+             gen.textContent="Correct number is: "+rand
+        }
+        else
+        {
+            score=score-1
+            res.textContent="You are wrong"
+            sc.textContent="Score: "+score
+            gen.textContent="Correct number is: "+rand
+            if(score<3)
+                alert("YOU LOST")
+        }
+    }
+</script>
